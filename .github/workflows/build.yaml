@@ -51,5 +51,9 @@ jobs:
         run: docker pull yedudevops/tic-tac-toe:latest
 
       - name: Image scan
-        run: trivy image yedudevops/tic-tac-toe:latest > trivyimagedeploy.txt  
+        run: trivy image yedudevops/tic-tac-toe:latest > trivyimagedeploy.txt
+
+      
+      - name: Deploy to container
+        run: docker run -d --name game -p 3000:3000 yedudevops/tic-tac-toe:latest  
 
