@@ -55,7 +55,7 @@ jobs:
 
   # stopped the container    
       - name: Deploy to container
-        run: docker run -d --name game -p 3000:3000 yedudevops/tic-tac-toe:latest 
+        run: docker run -d --name games -p 3000:3000 yedudevops/tic-tac-toe:latest 
 
       
       - name: Update kubeconfig
