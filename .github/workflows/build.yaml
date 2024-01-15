@@ -38,7 +38,8 @@ jobs:
           docker push yedudevops/tic-tac-toe:latest
         env:
           DOCKER_CLI_ACI: 1
-#commentss
+#comment
+# remove 
       - name: Image scan 
         run: trivy image yedudevops/tic-tac-toe:latest >> trivyimage.txt
 
