@@ -53,7 +53,7 @@ jobs:
       - name: Image scan
         run: trivy image yedudevops/tic-tac-toe:latest >> trivyimagedeploy.txt
 
-  # stopped the container    
+  # stopped the containers    
       - name: Deploy to container
         run: docker run -d --name games -p 3000:3000 yedudevops/tic-tac-toe:latest 
 
