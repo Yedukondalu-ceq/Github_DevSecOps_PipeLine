@@ -51,19 +51,19 @@ jobs:
       - name: docker pull image
         run: docker pull yedudevops/tic-tac-toe:latest
 
-      - name: Image scan
-        run: trivy image yedudevops/tic-tac-toe:latest >> trivyimagedeploy.txt
+  #     - name: Image scan
+  #       run: trivy image yedudevops/tic-tac-toe:latest >> trivyimagedeploy.txt
 
-  # stopped the containers    
-      - name: Deploy to container
-        run: docker run -d --name games -p 3000:3000 yedudevops/tic-tac-toe:latest 
+  # # stopped the containers    
+  #     - name: Deploy to container
+  #       run: docker run -d --name games -p 3000:3000 yedudevops/tic-tac-toe:latest 
 
       
       - name: Update kubeconfig
         run: aws eks --region ap-south-1 update-kubeconfig --name EKS_CLOUD
 #added credentials.
       - name: Deploy to kubernetes
-        run: kubectl apply -f deployment-service.yml  --validate=false
+        run: kubectl delete -f deployment-service.yml  --validate=false
 
       - name: Send a Slack Notification
         if: always()
