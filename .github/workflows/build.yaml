@@ -40,7 +40,7 @@ jobs:
           DOCKER_CLI_ACI: 1
 
       - name: Image scan 
-        run: trivy image yedudevops/tic-tac-toe:latest > trivyimage.txt
+        run: trivy image yedudevops/tic-tac-toe:latest >> trivyimage.txt
 
   
   deploy:
@@ -51,7 +51,7 @@ jobs:
         run: docker pull yedudevops/tic-tac-toe:latest
 
       - name: Image scan
-        run: trivy image yedudevops/tic-tac-toe:latest > trivyimagedeploy.txt
+        run: trivy image yedudevops/tic-tac-toe:latest >> trivyimagedeploy.txt
 
   # stopped the container    
       - name: Deploy to container
